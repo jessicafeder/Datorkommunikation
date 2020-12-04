@@ -7,6 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //hej
+
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress address = InetAddress.getByName("gbg1.ntp.se");
