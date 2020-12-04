@@ -121,6 +121,14 @@ public class SNTPMessage {
         }
     }
 
+    /*public String toString(){
+        TODO implementera metoden toString i SNTPMessage så att vi kan skriva ut vårt meddelande med de olika fälten
+LI: 0
+Verions: 4
+referenceIdentifier: PPS
+..
+    }*/
+
 
     public byte[] toByteToArray(){
         byte[] array = new byte[48];

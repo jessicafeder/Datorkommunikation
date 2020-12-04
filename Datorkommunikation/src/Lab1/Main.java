@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            //TODO utöka koden så att den försöker ansluta till en annan server om anslutningen misslyckas
+            //TODO räkna ut offseten mellan datorns klocka och tidsservern, se RFC. Kap 5.
             DatagramSocket socket = new DatagramSocket();
             InetAddress address = InetAddress.getByName("gbg1.ntp.se");
             SNTPMessage msg = new SNTPMessage();
