@@ -100,12 +100,64 @@ public class SNTPMessage {
         transmitTimeStamp = byteArrayToDouble(buf, 40); // -29, 116,  5,  62,  0, 47, -113,  -1}
     }
 
+    public SNTPMessage() {
+        //Mode to 3 for client
+        mode = 3;
+        transmitTimeStamp = (System.currentTimeMillis() / 1000.0) + 2208988800.0 ; // omvandlar milisekunder till sekunder
+    }
+
     private double byteArrayToDouble(byte[] buf, int index) {
         double result = 0.0;
         for(int i = 0; i < 8; i++) {
             result += unsignedByteToShort(buf[index + i]) * Math.pow(2, (3-i) * 8);
         }
         return result;
+    }
+
+    private void doubleToByteArray(byte[] array, int index, double data){
+        for(int i = 0; i < 8; i++){
+            array[index + i] = (byte) (data / Math.pow(2, (3-i)*8));
+            data -= (double) (unsignedByteToShort(array[index+i]) * Math.pow(2, (3-i) * 8));
+        }
+    }
+
+
+    public byte[] toByteToArray(){
+        byte[] array = new byte[48];
+        array[0] = (byte) ((byte)(leapIndicator << 6) | versionNumber << 3 | mode);
+        //LI == 0
+        //00 << 6 -> 0000 0000
+        //Version number == 4
+        // 0100 << 3 -> 0010 0000
+        // mode == 3
+        // 0011
+        array[1] = (byte) stratum;
+        array[2] = (byte) pollInterval;
+        array[3] = precision;
+
+        int data = (int) (rootDelay * (0xff+1));
+        array[4] = (byte) ((data >> 24) & 0xff);
+        array[5] = (byte) ((data >> 16) & 0xff);
+        array[6] = (byte) ((data >> 8) & 0xff);
+        array[7] = (byte) (data & 0xff);
+
+        int rd = (int)(rootDispersion * (0xff+1));
+        array[8] = (byte) ((rd >> 24) & 0xff);
+        array[9] = (byte) ((rd >> 16) & 0xff);
+        array[10] = (byte) ((rd >> 8) & 0xff);
+        array[11] = (byte) (rd & 0xff);
+
+        array[12] = referenceIdentifier[0];
+        array[13] = referenceIdentifier[1];
+        array[14] = referenceIdentifier[2];
+        array[15] = referenceIdentifier[3];
+
+        doubleToByteArray(array, 16, referenceTimeStamp);
+        doubleToByteArray(array, 24, originateTimeStamp);
+        doubleToByteArray(array, 32, receiveTimeStamp);
+        doubleToByteArray(array, 40, transmitTimeStamp);
+
+        return array;
     }
 
 
@@ -121,8 +173,5 @@ public class SNTPMessage {
             return (short) ((b & 0xFF));
         }
 
-        // if ((b & 0x80) == 0x80) { // 0x80 = 1000 0000
-        //    return (short) ((b & 0x7F)*2);
-        // }
     }
 }
