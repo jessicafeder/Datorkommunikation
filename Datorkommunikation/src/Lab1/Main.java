@@ -7,8 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //hej
-
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress address = InetAddress.getByName("gbg1.ntp.se");
@@ -24,11 +22,9 @@ public class Main {
             System.out.println();
 
 
-        } catch (SocketException | UnknownHostException e) {
+        } catch (IOException e) {
             e.printStackTrace();
 
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
         }
 
 
