@@ -1,3 +1,3 @@
 # Datorkommunikation
 
-Labb av Jessica Feder, MonaEl-Robaiy, Anders Wenström
+Labb av Jessica Feder
