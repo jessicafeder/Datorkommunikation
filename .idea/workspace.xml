@@ -73,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607091734822</updated>
       <workItem from="1607091736403" duration="1522000" />
-      <workItem from="1607331431940" duration="3233000" />
+      <workItem from="1607331431940" duration="3571000" />
     </task>
     <servers />
   </component>
@@ -81,6 +81,38 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1607335240317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607335240317" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1607335240317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607335240317" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1607335240318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607335240318" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607334723143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
