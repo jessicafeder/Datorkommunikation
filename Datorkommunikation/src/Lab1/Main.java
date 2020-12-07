@@ -71,6 +71,7 @@ public class Main {
         double offset = ((t2 - t1) + (t3 - t4)) / 2;
 
         System.out.println("Server offset: " + offset + " seconds");
+        System.out.println("Server delay: " + delay + " seconds");
     }
 
 
