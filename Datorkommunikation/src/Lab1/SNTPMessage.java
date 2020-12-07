@@ -1,5 +1,8 @@
 package Lab1;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+
 public class SNTPMessage {
     private byte leapIndicator = 0;
     private byte versionNumber = 4; //SNTP version is 4 (server)
@@ -121,13 +124,64 @@ public class SNTPMessage {
         }
     }
 
-    /*public String toString(){
-        TODO implementera metoden toString i SNTPMessage så att vi kan skriva ut vårt meddelande med de olika fälten
-LI: 0
-Verions: 4
-referenceIdentifier: PPS
-..
-    }*/
+    public void printDataToConsole() throws UnsupportedEncodingException {
+        System.out.println();
+        System.out.println("--Printing data from the message--");
+        System.out.println("LeapIndicator: " + leapIndicator);
+        System.out.println("VersionNumber: " + versionNumber);
+        System.out.println("Mode: " + mode);
+        System.out.println("Stratum: " + stratum);
+        System.out.println("pollInterval: " + pollInterval);
+        System.out.println("precision: " + precision);
+        System.out.println("rootDelay: " + rootDelay);
+        System.out.println("rootDispersion: " + rootDispersion);
+        System.out.println("ReferenceIdentifier: " + new String(referenceIdentifier, StandardCharsets.US_ASCII));
+        System.out.println("referenceTimeStamp: " + referenceTimeStamp);
+        System.out.println("originateTimeStamp: " + originateTimeStamp);
+        System.out.println("receiveTimeStamp: " + referenceTimeStamp);
+        System.out.println("transmitTimeStamp: " + transmitTimeStamp);
+        System.out.println();
+        System.out.println("Done.");
+        System.out.println("-----------------------");
+    }
+
+    public double getReferenceTimeStamp() {
+        return this.referenceTimeStamp;
+    }
+
+    public double getOriginateTimeStamp() {
+        return this.originateTimeStamp;
+    }
+
+    public double getReceiveTimeStamp() {
+        return this.receiveTimeStamp;
+    }
+
+    public double getTransmitTimeStamp() {
+        return this.transmitTimeStamp;
+    }
+
+    public byte getMode() {
+        return this.mode;
+    }
+
+    public String toString(){
+        StringBuilder msg = new StringBuilder();
+        msg.append("LeapIndicator: ").append(leapIndicator).append("\n");
+        msg.append("VersionNumber: ").append(versionNumber).append("\n");
+        msg.append("Mode: ").append(mode).append("\n");
+        msg.append("Stratum: ").append(stratum).append("\n");
+        msg.append("pollInterval: ").append(pollInterval).append("\n");
+        msg.append("precision: ").append(precision).append("\n");
+        msg.append("rootDelay: ").append(rootDelay).append("\n");
+        msg.append("rootDispersion: ").append(rootDispersion).append("\n");
+        msg.append("ReferenceIdentifier: ").append(new String(referenceIdentifier, StandardCharsets.US_ASCII)).append("\n");
+        msg.append("referenceTimeStamp: ").append(referenceTimeStamp).append("\n");
+        msg.append("originateTimeStamp: ").append(originateTimeStamp).append("\n");
+        msg.append("receiveTimeStamp: ").append(referenceTimeStamp).append("\n");
+        msg.insert(msg.length(), "transmitTimeStamp: " + transmitTimeStamp + "\n");
+        return msg.toString();
+    }
 
 
     public byte[] toByteToArray(){

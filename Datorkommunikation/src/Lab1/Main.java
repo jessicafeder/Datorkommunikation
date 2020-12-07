@@ -7,47 +7,72 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String[] server = new String[4];
+        server[0] = "svl2.ntp.se";
+        server[1] = "gbg2.ntp.se";
+        server[2] = "sth1.ntp.se";
+        server[3] = "mmo2.ntp.se";
+
         try {
-            //TODO utöka koden så att den försöker ansluta till en annan server om anslutningen misslyckas
-            //TODO räkna ut offseten mellan datorns klocka och tidsservern, se RFC. Kap 5.
             DatagramSocket socket = new DatagramSocket();
-            InetAddress address = InetAddress.getByName("gbg1.ntp.se");
+            boolean run = true;
+            int i = 0;
+
             SNTPMessage msg = new SNTPMessage();
-            byte [] buf = msg.toByteToArray();
-            DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 123);
-            socket.send(packet);
-            System.out.println("Sent request");
-            socket.receive(packet);
-            SNTPMessage response = new SNTPMessage(packet.getData());
-            System.out.println("Got reply");
+            byte[] buf = msg.toByteToArray();
+            SNTPMessage response = new SNTPMessage(buf);
+            socket.setSoTimeout(5);
+            while (run) {
+                InetAddress address = InetAddress.getByName(server[i++]);
+                DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 123);
+                socket.send(packet);
+                System.out.println("Sent request to server: " + address.getHostName());
+
+                try {
+                    socket.receive(packet);
+                } catch (SocketTimeoutException e) {
+                    System.out.println("Could not get a response in time, trying another server.");
+                }
+
+                response = new SNTPMessage(packet.getData());
+
+                if (response.getMode() == 4) {
+                    System.out.println("Message received from server: " + packet.getAddress().getHostName() + ":" + packet.getPort());
+                    run = false;
+                } else if (i == server.length) {
+                    i = 0;
+                }
+            }
+
             socket.close();
-            System.out.println();
+            System.out.println("Connection closed to server");
+
+            response.printDataToConsole();
+
+            calculateOffset(response);
+
+            System.out.println(response.toString());
 
 
         } catch (IOException e) {
             e.printStackTrace();
 
         }
-
-
-
-
-
-        /*byte [] buf = {     36, 1,  0,  -25,
-                            0,  0,  0,  0, //48 bytes
-                            0,  0,  0,  2,
-                            80, 80, 83, 0,
-                          -29, 116,  5, 61,  0,  0,    0,   0,
-                          -29, 116,  5, 59, 14, 86,    0,   0,
-                          -29, 116,  5, 62,  0, 47, -121, -38,
-                          -29, 116,  5, 62,  0, 47, -113,  -1};*/
-
-        // Första byten är 36 och innehåller:
-        // LI   VN  Mode
-        //  0    4    4 (server mode)
-        // 01  234  567
-        // 00  100  100 (Binärt tal)
-
-        /*SNTPMessage msg = new SNTPMessage(buf);*/
     }
-}
+
+    private static void calculateOffset(SNTPMessage message) {
+
+        double t1 = message.getOriginateTimeStamp();
+        double t2 = message.getReceiveTimeStamp();
+        double t3 = message.getTransmitTimeStamp();
+        double t4 = message.getReferenceTimeStamp();
+
+        double delay = (t4 - t1) - (t3 - t2);
+        double offset = ((t2 - t1) + (t3 - t4)) / 2;
+
+        System.out.println("Server offset: " + offset + " seconds");
+    }
+
+
+    }
+
