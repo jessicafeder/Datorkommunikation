@@ -37,7 +37,7 @@ public class Main {
                 response = new SNTPMessage(packet.getData());
 
                 if (response.getMode() == 4) {
-                    System.out.println("Message received from server: " + packet.getAddress().getHostName() + ":" + packet.getPort());
+                    System.out.println("Message received from server: " + packet.getAddress().getHostName() + ": " + packet.getPort());
                     run = false;
                 } else if (i == server.length) {
                     i = 0;
@@ -74,5 +74,5 @@ public class Main {
     }
 
 
-    }
+}
 

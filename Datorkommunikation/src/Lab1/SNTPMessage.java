@@ -48,7 +48,7 @@ public class SNTPMessage {
            0      4       4
         */
 
-        leapIndicator = (byte)((b>>6) & 0x3);
+        leapIndicator = (byte) ((b >> 6) & 0x3);
         //00100100 -> 0010 0100
         // >> skiftar alla bits 6 steg till höger
         //0001 0010 b>>1
@@ -56,12 +56,12 @@ public class SNTPMessage {
         //0000 0000 Resultat av b>>6
         //0x3? -> 0011
         // 36decimalt -> 24hex -> 0010 0100 binärt
-        versionNumber = (byte)((b>>3) & 0x7);
+        versionNumber = (byte) ((b >> 3) & 0x7);
         //skifta 3 steg till höger
         // 0010 0100 -> 0000 0100
         // & 0x7?
         //0000 0100 -> 0000 0111
-        mode = (byte)(b & 0x7);
+        mode = (byte) (b & 0x7);
         // 0010 0100
 
         stratum = unsignedByteToShort(buf[1]); // 1
@@ -79,13 +79,13 @@ public class SNTPMessage {
         // 65536.0 -> 0xFFFF+1.0
         rootDelay = (((buf[4] * 256.0)
                 + (unsignedByteToShort(buf[5])))
-                + ((unsignedByteToShort(buf[6]) / (0xFF+1.0))
-                + (unsignedByteToShort(buf[7]) / (0xFFFF+1.0)))); // 0,   0,  0,   0,
+                + ((unsignedByteToShort(buf[6]) / (0xFF + 1.0))
+                + (unsignedByteToShort(buf[7]) / (0xFFFF + 1.0)))); // 0,   0,  0,   0,
 
         rootDispersion = (((buf[8] * 255.0)
                 + (unsignedByteToShort(buf[9])))
-                + ((unsignedByteToShort(buf[10]) / (0xFF+1.0))
-                + (unsignedByteToShort(buf[11]) / (0xFFFF+1.0)))); // 0,   0,  0,   2,
+                + ((unsignedByteToShort(buf[10]) / (0xFF + 1.0))
+                + (unsignedByteToShort(buf[11]) / (0xFFFF + 1.0)))); // 0,   0,  0,   2,
 
         // 0101 0000 | 0101 0000 | 0101 0011 | 0000 0000
         //     80          80         83          0
@@ -106,21 +106,21 @@ public class SNTPMessage {
     public SNTPMessage() {
         //Mode to 3 for client
         mode = 3;
-        transmitTimeStamp = (System.currentTimeMillis() / 1000.0) + 2208988800.0 ; // omvandlar milisekunder till sekunder
+        transmitTimeStamp = (System.currentTimeMillis() / 1000.0) + 2208988800.0; // omvandlar milisekunder till sekunder
     }
 
     private double byteArrayToDouble(byte[] buf, int index) {
         double result = 0.0;
-        for(int i = 0; i < 8; i++) {
-            result += unsignedByteToShort(buf[index + i]) * Math.pow(2, (3-i) * 8);
+        for (int i = 0; i < 8; i++) {
+            result += unsignedByteToShort(buf[index + i]) * Math.pow(2, (3 - i) * 8);
         }
         return result;
     }
 
-    private void doubleToByteArray(byte[] array, int index, double data){
-        for(int i = 0; i < 8; i++){
-            array[index + i] = (byte) (data / Math.pow(2, (3-i)*8));
-            data -= (double) (unsignedByteToShort(array[index+i]) * Math.pow(2, (3-i) * 8));
+    private void doubleToByteArray(byte[] array, int index, double data) {
+        for (int i = 0; i < 8; i++) {
+            array[index + i] = (byte) (data / Math.pow(2, (3 - i) * 8));
+            data -= (double) (unsignedByteToShort(array[index + i]) * Math.pow(2, (3 - i) * 8));
         }
     }
 
@@ -141,7 +141,7 @@ public class SNTPMessage {
         System.out.println("receiveTimeStamp: " + referenceTimeStamp);
         System.out.println("transmitTimeStamp: " + transmitTimeStamp);
         System.out.println();
-        System.out.println("Done.");
+        System.out.println("Done");
         System.out.println("-----------------------");
     }
 
@@ -165,7 +165,7 @@ public class SNTPMessage {
         return this.mode;
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder msg = new StringBuilder();
         msg.append("LeapIndicator: ").append(leapIndicator).append("\n");
         msg.append("VersionNumber: ").append(versionNumber).append("\n");
@@ -184,9 +184,9 @@ public class SNTPMessage {
     }
 
 
-    public byte[] toByteToArray(){
+    public byte[] toByteToArray() {
         byte[] array = new byte[48];
-        array[0] = (byte) ((byte)(leapIndicator << 6) | versionNumber << 3 | mode);
+        array[0] = (byte) ((byte) (leapIndicator << 6) | versionNumber << 3 | mode);
         //LI == 0
         //00 << 6 -> 0000 0000
         //Version number == 4
@@ -197,13 +197,13 @@ public class SNTPMessage {
         array[2] = (byte) pollInterval;
         array[3] = precision;
 
-        int data = (int) (rootDelay * (0xff+1));
+        int data = (int) (rootDelay * (0xff + 1));
         array[4] = (byte) ((data >> 24) & 0xff);
         array[5] = (byte) ((data >> 16) & 0xff);
         array[6] = (byte) ((data >> 8) & 0xff);
         array[7] = (byte) (data & 0xff);
 
-        int rd = (int)(rootDispersion * (0xff+1));
+        int rd = (int) (rootDispersion * (0xff + 1));
         array[8] = (byte) ((rd >> 24) & 0xff);
         array[9] = (byte) ((rd >> 16) & 0xff);
         array[10] = (byte) ((rd >> 8) & 0xff);
@@ -229,7 +229,7 @@ public class SNTPMessage {
         //Exempel b = 1101 1001, översta biten är satt och java tolkar som ett negativt tal
         //Kolla om översta biten är satt genom bitvis and med 0x80 eller 1000 0000
 
-        if (((b>>7) & 0x1) == 1) {
+        if (((b >> 7) & 0x1) == 1) {
             return (short) ((b & 0x7F) + 128); // 0111 1111 -> 64+32+16+8+4+2+1 = 127 -> 0x7F hexadecimal, 128 tack vare första biten
         } else {
             return (short) ((b & 0xFF));
