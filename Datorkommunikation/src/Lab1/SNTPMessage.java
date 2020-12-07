@@ -127,19 +127,19 @@ public class SNTPMessage {
     public void printDataToConsole() throws UnsupportedEncodingException {
         System.out.println();
         System.out.println("--Printing data from the message--");
-        System.out.println("LeapIndicator: " + leapIndicator);
-        System.out.println("VersionNumber: " + versionNumber);
+        System.out.println("Leap Indicator: " + leapIndicator);
+        System.out.println("Version Number: " + versionNumber);
         System.out.println("Mode: " + mode);
         System.out.println("Stratum: " + stratum);
-        System.out.println("pollInterval: " + pollInterval);
-        System.out.println("precision: " + precision);
-        System.out.println("rootDelay: " + rootDelay);
-        System.out.println("rootDispersion: " + rootDispersion);
-        System.out.println("ReferenceIdentifier: " + new String(referenceIdentifier, StandardCharsets.US_ASCII));
-        System.out.println("referenceTimeStamp: " + referenceTimeStamp);
-        System.out.println("originateTimeStamp: " + originateTimeStamp);
-        System.out.println("receiveTimeStamp: " + referenceTimeStamp);
-        System.out.println("transmitTimeStamp: " + transmitTimeStamp);
+        System.out.println("Poll Interval: " + pollInterval);
+        System.out.println("Precision: " + precision);
+        System.out.println("Root Delay: " + rootDelay);
+        System.out.println("Root Dispersion: " + rootDispersion);
+        System.out.println("Reference Identifier: " + new String(referenceIdentifier, StandardCharsets.US_ASCII));
+        System.out.println("Reference TimeStamp: " + referenceTimeStamp);
+        System.out.println("Originate TimeStamp: " + originateTimeStamp);
+        System.out.println("Receive Time Stamp: " + referenceTimeStamp);
+        System.out.println("Transmit Time Stamp: " + transmitTimeStamp);
         System.out.println();
         System.out.println("Done");
         System.out.println("-----------------------");
@@ -167,19 +167,19 @@ public class SNTPMessage {
 
     public String toString() {
         StringBuilder msg = new StringBuilder();
-        msg.append("LeapIndicator: ").append(leapIndicator).append("\n");
-        msg.append("VersionNumber: ").append(versionNumber).append("\n");
+        msg.append("Leap Indicator: ").append(leapIndicator).append("\n");
+        msg.append("Version Number: ").append(versionNumber).append("\n");
         msg.append("Mode: ").append(mode).append("\n");
         msg.append("Stratum: ").append(stratum).append("\n");
-        msg.append("pollInterval: ").append(pollInterval).append("\n");
-        msg.append("precision: ").append(precision).append("\n");
-        msg.append("rootDelay: ").append(rootDelay).append("\n");
-        msg.append("rootDispersion: ").append(rootDispersion).append("\n");
-        msg.append("ReferenceIdentifier: ").append(new String(referenceIdentifier, StandardCharsets.US_ASCII)).append("\n");
-        msg.append("referenceTimeStamp: ").append(referenceTimeStamp).append("\n");
-        msg.append("originateTimeStamp: ").append(originateTimeStamp).append("\n");
-        msg.append("receiveTimeStamp: ").append(referenceTimeStamp).append("\n");
-        msg.insert(msg.length(), "transmitTimeStamp: " + transmitTimeStamp + "\n");
+        msg.append("Poll Interval: ").append(pollInterval).append("\n");
+        msg.append("Precision: ").append(precision).append("\n");
+        msg.append("Root Delay: ").append(rootDelay).append("\n");
+        msg.append("Root Dispersion: ").append(rootDispersion).append("\n");
+        msg.append("Reference Identifier: ").append(new String(referenceIdentifier, StandardCharsets.US_ASCII)).append("\n");
+        msg.append("Reference Time Stamp: ").append(referenceTimeStamp).append("\n");
+        msg.append("Originate Time Stamp: ").append(originateTimeStamp).append("\n");
+        msg.append("Receive Time Stamp: ").append(referenceTimeStamp).append("\n");
+        msg.insert(msg.length(), "Transmit Time Stamp: " + transmitTimeStamp + "\n");
         return msg.toString();
     }
 

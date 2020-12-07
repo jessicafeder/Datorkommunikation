@@ -60,12 +60,12 @@ public class Main {
         }
     }
 
-    private static void calculateOffset(SNTPMessage message) {
+    private static void calculateOffset(SNTPMessage msg) {
 
-        double t1 = message.getOriginateTimeStamp();
-        double t2 = message.getReceiveTimeStamp();
-        double t3 = message.getTransmitTimeStamp();
-        double t4 = message.getReferenceTimeStamp();
+        double t1 = msg.getOriginateTimeStamp();
+        double t2 = msg.getReceiveTimeStamp();
+        double t3 = msg.getTransmitTimeStamp();
+        double t4 = msg.getReferenceTimeStamp();
 
         double delay = (t4 - t1) - (t3 - t2);
         double offset = ((t2 - t1) + (t3 - t4)) / 2;

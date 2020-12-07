@@ -16,6 +16,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -69,11 +73,17 @@
       <option name="presentableId" value="Default" />
       <updated>1607091734822</updated>
       <workItem from="1607091736403" duration="1522000" />
-      <workItem from="1607331431940" duration="2763000" />
+      <workItem from="1607331431940" duration="3233000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607334723143">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1607334723143" />
   </component>
 </project>
