@@ -141,8 +141,8 @@ public class SNTPMessage {
         System.out.println("Receive Time Stamp: " + referenceTimeStamp);
         System.out.println("Transmit Time Stamp: " + transmitTimeStamp);
         System.out.println();
-        System.out.println("Done");
         System.out.println("-----------------------");
+        System.out.println();
     }
 
     public double getReferenceTimeStamp() {
