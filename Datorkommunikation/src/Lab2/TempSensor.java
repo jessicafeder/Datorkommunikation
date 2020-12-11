@@ -1,14 +1,17 @@
 package Lab2;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class TempSensor {
 
     TempSensor() {
+        Scanner sc = new Scanner(System.in);
         String topic = "sensor/KYH/EG";
-        String content = "Message from Batman: nananananananananana";
+        String content = "" + (int) (Math.random() * 10 +15) ;
         int qos = 2;
         String broker = "tcp://broker.hivemq.com:1883";
         String clientId = "JavaSample";
@@ -55,17 +58,14 @@ public class TempSensor {
     class RemindTask extends TimerTask {
         public void run() {
             System.out.println("Time's up!");
-            timer.cancel();
+            timer.cancel(); //Terminate the timer thread
+            new TempSensor();
+            new TempSensor(1);
         }
     }
 
-    void createTimer(){
-        Timer timer = new Timer();
-        timer.schedule(new RemindTask(), 5*1000);
-    }
-
     public static void main(String[] args) {
-        new TempSensor(5);
+        new TempSensor(1);
         System.out.println("Task scheduled.");
         new TempSensor();
     }
