@@ -30,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cookingApp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,6 +43,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jessi\Documents\Datorkommunikation1\Datorkommunikation" />
       <recent name="C:\Users\jessi\Documents\Datorkommunikation1\Datorkommunikation\src\Lab2" />
     </key>
   </component>
@@ -101,7 +102,7 @@
       <updated>1607091734822</updated>
       <workItem from="1607091736403" duration="1522000" />
       <workItem from="1607331431940" duration="3233000" />
-      <workItem from="1607676839284" duration="4726000" />
+      <workItem from="1607676839284" duration="8427000" />
     </task>
     <servers />
   </component>
@@ -109,6 +110,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2980" y="275" key="FileChooserDialogImpl" timestamp="1607685205218">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state x="2980" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1607685205218" />
     <state width="2517" height="281" key="GridCell.Tab.0.bottom" timestamp="1607681992587">
       <screen x="1920" y="0" width="2560" height="1040" />
     </state>
