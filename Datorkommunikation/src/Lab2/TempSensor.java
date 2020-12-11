@@ -11,7 +11,7 @@ public class TempSensor {
     TempSensor() {
         Scanner sc = new Scanner(System.in);
         String topic = "sensor/KYH/EG";
-        String content = "" + (int) (Math.random() * 10 +15) ;
+        String content = "hej" + (int) (Math.random() * 10 +15) ;
         int qos = 2;
         String broker = "tcp://broker.hivemq.com:1883";
         String clientId = "JavaSample";

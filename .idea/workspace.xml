@@ -30,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cookingApp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,8 +38,8 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -74,6 +74,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TempSensor" />
@@ -99,10 +112,11 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2980" y="275" key="FileChooserDialogImpl" timestamp="1607685205218">
-      <screen x="1920" y="0" width="2560" height="1040" />
+    <state x="636" y="218" key="FileChooserDialogImpl" timestamp="1607696602555">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2980" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1607685205218" />
+    <state x="636" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607696602555" />
     <state width="2517" height="281" key="GridCell.Tab.0.bottom" timestamp="1607681992587">
       <screen x="1920" y="0" width="2560" height="1040" />
     </state>
@@ -123,15 +137,15 @@
     </state>
     <state width="2517" height="281" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1607681992587" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607337323734" />
-    <state x="2335" y="0" key="SettingsEditor" timestamp="1607677643284">
-      <screen x="1920" y="0" width="2560" height="1040" />
-    </state>
-    <state x="2335" y="0" key="SettingsEditor/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1607677643284" />
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607346098323" />
-    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607346093739">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1607696733111">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1607346093739" />
+    <state x="2335" y="0" key="SettingsEditor/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1607677643284" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607696733111" />
+    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607696727172">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1607696727172" />
     <state x="209" y="33" key="new project wizard" timestamp="1607345848740">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
