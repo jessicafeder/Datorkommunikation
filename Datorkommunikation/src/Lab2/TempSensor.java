@@ -29,15 +29,8 @@ public class TempSensor {
             message.setQos(qos);
             sampleClient.publish(topic, message);
             System.out.println("Message published");
-            while (true) {
+            sampleClient.subscribe(topic, new MqttPostPropertyMessageListener());
 
-                sampleClient.subscribe(topic, new MqttPostPropertyMessageListener());
-                //timerTask.scheduledExecutionTime();
-            }
-
-            //sampleClient.disconnect();
-            //System.out.println("Disconnected");
-            //System.exit(0);
         } catch (MqttException me) {
             System.out.println("reason " + me.getReasonCode());
             System.out.println("msg " + me.getMessage());
